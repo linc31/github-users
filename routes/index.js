@@ -1,10 +1,13 @@
 var express = require('express');
 var router = express.Router();
-var request = require('request');
+var githubCtrl = require('../controllers/github');
 
-const rootURL = 'https://api.github.com/';
 
 /* GET home page. */
+router.get('/', githubCtrl.userDetails);
+router.post('/', githubCtrl.userDetails);
+router.post('/search', githubCtrl.search);
+
 router.get('/', function(req, res, next) {
   res.render('index', {userData: null});
 });
